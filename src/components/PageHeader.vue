@@ -3,8 +3,14 @@
     <div class="logo">BOOLFLIX</div>
 
     <div>
-        <input placeholder="scrivi un titolo">
-        <button class="my_btn">cerca</button>
+        <input 
+        v-model="movieTitle" 
+        type="text"
+        placeholder="scrivi un titolo"
+        @keyup.enter="$emit('searchTitle', movieTitle)">
+        
+
+        <button class="my_btn" @click="$emit('searchTitle', movieTitle)">cerca</button>
     </div>
 
 </header>
@@ -12,7 +18,12 @@
 
 <script>
 export default {
-    name:'PageHeader'
+    name:'PageHeader',
+    data(){
+        return{
+            movieTitle: ''
+        }
+    }
 }
 </script>
 
@@ -23,7 +34,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 100px;
     padding-left: 20px;
     padding-right: 20px;
 
@@ -32,11 +43,11 @@ header {
     }
 
     input {
-        padding: 8px;
+        padding: 7px;
     }
 
     .my_btn {
-        padding: 8px;
+        padding: 7px;
         border: 1px solid white;
         background-color: lightcoral;
     }
