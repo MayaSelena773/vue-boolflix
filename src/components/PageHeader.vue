@@ -1,10 +1,10 @@
 <template>
 <header>
-    <div>BOOLFLIX</div>
+    <div class="logo">BOOLFLIX</div>
 
     <div>
-        <input placeholder="scrivi un titolo"></input>
-        <button type="primary">cerca</button>
+        <input placeholder="scrivi un titolo">
+        <button class="my_btn">cerca</button>
     </div>
 
 </header>
@@ -19,10 +19,27 @@ export default {
 <style lang="scss" scoped>
 
 header {
-    background-color: lightblue;
+    background-color: black;
     display: flex;
     justify-content: space-between;
-    height: 20px;
+    align-items: center;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .logo {
+        color: red;
+    }
+
+    input {
+        padding: 8px;
+    }
+
+    .my_btn {
+        padding: 8px;
+        border: 1px solid white;
+        background-color: lightcoral;
+    }
 }
 
 </style>
