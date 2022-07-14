@@ -2,10 +2,16 @@
     <section>
 
         <li>
-            <span>Titolo:{{item.title}}</span>
-            <span>Titolo originale:{{item.original_title}}</span>
-            <span>Lingua:{{item.original_language}}</span>
-            <span>Voto:{{item.vote_average}}</span>
+            <div>Titolo:{{item.title ? item.title : item.name}}</div>
+            <div>Titolo originale:{{item.original_title ? item.original_title : item.original_name}}</div>
+            <div>Lingua:
+                <img 
+                v-if="availableflags.includes(item.original_language)" 
+                :src="require(`../assets/img/${item.original_language}.png`)" 
+                :alt="item.original_language">
+                <span v-else>{{item.original_language}}</span>
+            </div>
+            <div>Voto:{{item.vote_average}}</div>
         </li>
 
     </section>
@@ -18,8 +24,9 @@ export default {
     name:'CardComponent',
     data() {
         return {
+            availableflags: ['it', 'en']
 
-        }
+        };
     },
     props: {
         "item": Object
@@ -38,8 +45,12 @@ li {
     display: flex;
     flex-direction: column;
 
-    span {
-        padding: 5px;
+    img {
+        width: 30px;
+    }
+
+    div {
+        padding: 10px;
     }
 }
 </style>

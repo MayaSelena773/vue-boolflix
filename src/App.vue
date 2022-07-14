@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <PageHeader @searchTitle="search"/>
-    <PageMain :movieCards="allResults"/>
+    <PageMain 
+    :movieCards="movies"
+    :seriesCards="series"
+    :searching="searchStarted"/>
     <CardComponent />
   </div>
 </template>
@@ -26,7 +29,8 @@ export default {
       apiUrl: 'https://api.themoviedb.org/3/search/',
       apiKey: '121bc0e4496113720c5608bf27388f16',
       movies: [],
-      allResults: [],
+      series: [],
+      //allResults: [],
       searchStarted: false
     }
   },
@@ -36,7 +40,17 @@ export default {
       .get(this.apiUrl + 'movie', apiParams)
       .then((response) => {
 
-        this.allResults = response.data.results;
+        this.movies = response.data.results;
+        this.searchStarted = true;
+      })
+
+    },
+    getTvShows(apiParams) {
+      axios
+      .get(this.apiUrl + 'tv', apiParams)
+      .then((response) => {
+
+        this.series = response.data.results;
         this.searchStarted = true;
       })
 
@@ -52,6 +66,7 @@ export default {
       };
 
       this.getMovies(paramsObj);
+      this.getTvShows(paramsObj);
     }
   }
 }

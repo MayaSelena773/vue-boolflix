@@ -1,9 +1,10 @@
 <template>
     <main>
-        <!--sezione cards films-->
-        <section class="movie-cards" v-if="movieCards.length">
+        
+        <section v-if="movieCards.length">
 
-            <h1>Film</h1>
+            <!--sezione cards films-->
+            <h2>Film</h2>
 
             <ul>
                 <!--singola card-->
@@ -11,7 +12,16 @@
                 v-for="card in movieCards"
                 :key="card.id"
                 :item="card"/>
+            </ul>
 
+            <!--sezione cards serie-->
+            <h2>Serie Tv</h2>
+
+            <ul>
+                <CardComponent 
+                v-for="card in seriesCards"
+                :key="card.id"
+                :item="card"/> 
             </ul>
 
         </section>
@@ -25,6 +35,7 @@ export default {
     name:'PageMain',
     props: {
         "movieCards": Array,
+        "seriesCards": Array,
         "searching": Boolean
     },
     components: {
