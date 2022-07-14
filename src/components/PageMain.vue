@@ -1,10 +1,12 @@
 <template>
     <main>
+        <!--sezione cards films-->
         <section class="movie-cards" v-if="movieCards.length">
+
             <h1>Film</h1>
 
-            <ul class="cards">
-
+            <ul>
+                <!--singola card-->
                 <CardComponent
                 v-for="card in movieCards"
                 :key="card.id"
@@ -32,6 +34,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+main {
+    background-color: grey;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 </style>
 

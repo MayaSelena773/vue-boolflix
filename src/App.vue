@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <PageHeader @searchTitle="search"/>
-    <PageMain />
+    <PageMain :movieCards="allResults"/>
     <CardComponent />
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
 
       const paramsObj = {
         params: {
-          api_key: this.apikey,
+          api_key: this.apiKey,
           query: searchTitle,
           language: 'it,IT'
         }

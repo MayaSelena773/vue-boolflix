@@ -1,7 +1,8 @@
 <template>
 <header>
+    <!--Logo header-->
     <div class="logo">BOOLFLIX</div>
-
+    <!--input search film-->
     <div>
         <input 
         v-model="movieTitle" 
@@ -9,7 +10,6 @@
         placeholder="scrivi un titolo"
         @keyup.enter="$emit('searchTitle', movieTitle)">
         
-
         <button class="my_btn" @click="$emit('searchTitle', movieTitle)">cerca</button>
     </div>
 
