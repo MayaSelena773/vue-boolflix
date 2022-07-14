@@ -17,13 +17,16 @@
 </template>
 
 <script>
-import CardComponent from './/CardComponent.vue';
+import CardComponent from './CardComponent.vue';
 
 export default {
     name:'PageMain',
     props: {
         "movieCards": Array,
         "searching": Boolean
+    },
+    components: {
+        CardComponent
     }
 }
 </script>
